@@ -1,5 +1,7 @@
 <?php
 
+namespace Main;
+
 class Holiday {
     private $today;
     private $date;
@@ -7,10 +9,10 @@ class Holiday {
 
     public function __construct()
     {
-        $this->today = new DateTIme();
+        $this->today = new \DateTime();
     }
 
-    public function setDate(DateTime $date) 
+    public function setDate(\DateTime $date) 
     {
         $this->date = $date;
         $this->calculateDiff();
@@ -55,25 +57,4 @@ class Holiday {
 
         return $count;
     }
-}
-
-$holiday = new Holiday();
-
-/*
-foreach ($members as $member) {
-    $holiday->setDate(new DateTime($member->date));
-
-    if($holiday->checkUpdateDate()) {
-        $holidayCount = $holiday->getCount();
-        echo $holidayCount;
-    }
-}
-*/
-
-$holiday->setDate(new DateTime('2018-09-13'));
-
-if ($holiday->checkUpdateDate()) {
-    $holidayCount = $holiday->getCount();
-
-    echo $holidayCount;
 }
